@@ -43,21 +43,30 @@ function operate(operator, firstNumber, secondNumber){
 };
 
 // Store the current display value in a variable
-let currentValue = "0";  // Initial display value
-
-// Populate display when buttons are pressed
-let operandButtons = document.querySelectorAll(".operand");  // Select all operand buttons
-let calcDisplay = document.querySelector("#calc");  // Get the display element
+let currentValue = "0";
+const MAX_DIGITS = 9;
 
 // Add event listeners to all operand buttons
+let operandButtons = document.querySelectorAll(".operand");
+let calcDisplay = document.querySelector("#calc");
+
 operandButtons.forEach(button => {
     button.addEventListener("click", () => {
         if (currentValue === "0") {
-            currentValue = button.innerText;  // Replace with the first clicked number
-        } else {
-            currentValue += button.innerText;  // Append the clicked number
+            currentValue = button.innerText;
+        } else if (currentValue.length < MAX_DIGITS) {
+            currentValue += button.innerText;
         }
-        calcDisplay.innerText = currentValue;  // Update the display
+        calcDisplay.innerText = currentValue;
     });
+});
+
+
+// Add event listener to clear button
+let clearButton = document.querySelector(".clear");
+
+clearButton.addEventListener("click", () => {
+    currentValue = "0";
+    calcDisplay.innerText = currentValue;
 });
 
