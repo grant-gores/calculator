@@ -58,6 +58,20 @@ operandButtons.forEach(button => {
             currentValue += button.innerText;
         }
         calcDisplay.innerText = currentValue;
+        firstNumber = parseFloat(currentValue);
+    });
+});
+
+// Add event listeners to all operator buttons
+let operatorButtons = document.querySelectorAll(".operator");
+
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        if(currentValue !=="0") {
+            secondNumber = parseFloat(currentValue);
+            operator = button.innerText;
+            currentValue = "0";
+        }
     });
 });
 
