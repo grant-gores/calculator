@@ -24,7 +24,7 @@ let firstNumber = 0;
 let operator = "";
 let secondNumber = 0;
 
-function operate(operator, firstNumber, secondNumber){
+function operate(firstNumber, operator, secondNumber){
     if (operator === "+"){
         return add(firstNumber,secondNumber);
     }
