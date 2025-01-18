@@ -1,0 +1,87 @@
+/* Body should be a flex container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: monospace;
+}
+
+#container {
+    background-color: black;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 375px;
+    justify-self: center;
+}
+
+#calc {
+    background-color: #b2b9b7;
+    width: 100%;
+    max-width: 375px;
+    text-align: right;
+    font-size: 4.4em;
+    margin-bottom: 10px;
+    padding: 15px 0px;
+    font-weight: 900;
+}
+
+#button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-gap: 5px;
+    width: 100%;
+    max-width: 375px;
+}
+
+#button-container button:last-child {
+    grid-column: span 2; /* Make the last button (equals) span two columns */
+}
+
+button {
+    padding: 20px;
+    font-size: 1.5em; /* Button font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.operand{
+    background-color: #217C7E;
+}
+
+.operator{
+    background-color: #FF8F1F;
+}
+
+.clear{
+    background-color: dodgerblue;
+}
+
+.sign{
+    background-color: dodgerblue;
+}
+
+.percent{
+    background-color: dodgerblue;
+}
+
+.decimal{
+    background-color: #217C7E;
+}
+
+.equals{
+    background-color: #FF8F1F;
+}
+
+button:active {
+    background-color: #ccc;
+}
+
