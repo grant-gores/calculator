@@ -16,7 +16,6 @@ body {
     align-items: center;
     width: 100%;
     max-width: 375px;
-    justify-self: center;
 }
 
 #calc {
