@@ -1,18 +1,45 @@
 // Create calculator functions
 function add(a, b) {
-    return a + b;
+    const result = a + b;
+    // Check if result has decimals and round to 5 places if necessary
+    if (result % 1 !== 0) {
+        return result.toFixed(5); // Return with 5 decimal places
+    } else {
+        return result; // Return as an integer if no decimals
+    }
 }
 
 function subtract(a, b) {
-    return a - b;
+    const result = a - b;
+    // Check if result has decimals and round to 5 places if necessary
+    if (result % 1 !== 0) {
+        return result.toFixed(5); // Return with 5 decimal places
+    } else {
+        return result; // Return as an integer if no decimals
+    }
 }
 
 function multiply(a, b) {
-    return a * b;
+    const result = a * b;
+    // Check if result has decimals and round to 5 places if necessary
+    if (result % 1 !== 0) {
+        return result.toFixed(5); // Return with 5 decimal places
+    } else {
+        return result; // Return as an integer if no decimals
+    }
 }
 
 function divide(a, b) {
-    return a / b;
+    if (b === 0) {
+        return "silly";
+    }
+    const result = a / b;
+    // Check if result has decimals and round to 5 places if necessary
+    if (result % 1 !== 0) {
+        return result.toFixed(5); // Return with 5 decimal places
+    } else {
+        return result; // Return as an integer if no decimals
+    }
 }
 
 // Function to perform operation
@@ -99,4 +126,14 @@ document.querySelector(".clear").addEventListener("click", () => {
     awaitingSecondNumber = false;
     currentValue = "0";
     updateDisplay(currentValue);
+});
+
+// Event listener for sign button
+document.querySelector(".sign").addEventListener("click", () => {
+    alert("Functionality for this button does not exist yet.");
+});
+
+// Event listener for percent button
+document.querySelector(".percent").addEventListener("click", () => {
+    alert("Functionality for this button does not exist yet.");
 });
