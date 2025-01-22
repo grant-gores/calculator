@@ -40,47 +40,5 @@ function operate(firstNumber, operator, secondNumber){
     else{
         return "Enter a valid operator ('+', '-', '*', or '/')";
     }
-};
-
-// Store the current display value in a variable
-let currentValue = "0";
-const MAX_DIGITS = 9;
-
-// Add event listeners to all operand buttons
-let operandButtons = document.querySelectorAll(".operand");
-let calcDisplay = document.querySelector("#calc");
-
-operandButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        if (currentValue === "0") {
-            currentValue = button.innerText;
-        } else if (currentValue.length < MAX_DIGITS) {
-            currentValue += button.innerText;
-        }
-        calcDisplay.innerText = currentValue;
-        firstNumber = parseFloat(currentValue);
-    });
-});
-
-// Add event listeners to all operator buttons
-let operatorButtons = document.querySelectorAll(".operator");
-
-operatorButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        if(currentValue !=="0") {
-            secondNumber = parseFloat(currentValue);
-            operator = button.innerText;
-            currentValue = "0";
-        }
-    });
-});
-
-
-// Add event listener to clear button
-let clearButton = document.querySelector(".clear");
-
-clearButton.addEventListener("click", () => {
-    currentValue = "0";
-    calcDisplay.innerText = currentValue;
-});
+}
 
