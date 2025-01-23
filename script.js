@@ -65,6 +65,7 @@ let secondNumber = null;
 let awaitingSecondNumber = false;
 let currentValue = "0";
 const MAX_DIGITS = 9;
+let operatorPressedLast = false; // New flag to track consecutive operator presses
 
 // Display element
 const calcDisplay = document.querySelector("#calc");
@@ -88,12 +89,19 @@ document.querySelectorAll(".operand").forEach(button => {
             }
         }
         updateDisplay(currentValue);
+        operatorPressedLast = false; // Reset operator press flag
     });
 });
 
 // Event listeners for operator buttons
 document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
+        if (operatorPressedLast) {
+            // Update the operator if pressed consecutively
+            operator = button.innerText;
+            return;
+        }
+
         if (firstNumber === null) {
             firstNumber = parseFloat(currentValue);
         } else if (operator) {
@@ -103,6 +111,7 @@ document.querySelectorAll(".operator").forEach(button => {
         }
         operator = button.innerText;
         awaitingSecondNumber = true;
+        operatorPressedLast = true; // Set operator press flag
     });
 });
 
@@ -115,6 +124,7 @@ document.querySelector(".equals").addEventListener("click", () => {
         firstNumber = result;
         operator = null;
         awaitingSecondNumber = true;
+        operatorPressedLast = false; // Reset operator press flag
     }
 });
 
@@ -126,6 +136,12 @@ document.querySelector(".clear").addEventListener("click", () => {
     awaitingSecondNumber = false;
     currentValue = "0";
     updateDisplay(currentValue);
+    operatorPressedLast = false; // Reset operator press flag
+});
+
+// Event listener for percent button
+document.querySelector(".decimal").addEventListener("click", () => {
+    alert("Functionality for this button does not exist yet.");
 });
 
 // Event listener for sign button
