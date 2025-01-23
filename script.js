@@ -141,10 +141,7 @@ document.querySelector(".clear").addEventListener("click", () => {
 
 // Event listener for decimal button
 document.querySelector(".decimal").addEventListener("click", () => {
-    if (!currentValue.includes(".")) {
-        currentValue += "."; // Add decimal point to current value
-        updateDisplay(currentValue);
-    }
+    alert("Functionality for this button does not exist yet.");
 });
 
 // Event listener for sign button
