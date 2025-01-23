@@ -3,7 +3,7 @@ function add(a, b) {
     const result = a + b;
     // Check if result has decimals and round to 5 places if necessary
     if (result % 1 !== 0) {
-        return result.toFixed(5); // Return with 5 decimal places
+        return Number(result.toFixed(5)); // Return with 5 decimal places
     } else {
         return result; // Return as an integer if no decimals
     }
@@ -13,7 +13,7 @@ function subtract(a, b) {
     const result = a - b;
     // Check if result has decimals and round to 5 places if necessary
     if (result % 1 !== 0) {
-        return result.toFixed(5); // Return with 5 decimal places
+        return Number(result.toFixed(5)); // Return with 5 decimal places
     } else {
         return result; // Return as an integer if no decimals
     }
@@ -23,7 +23,7 @@ function multiply(a, b) {
     const result = a * b;
     // Check if result has decimals and round to 5 places if necessary
     if (result % 1 !== 0) {
-        return result.toFixed(5); // Return with 5 decimal places
+        return Number(result.toFixed(5)); // Return with 5 decimal places
     } else {
         return result; // Return as an integer if no decimals
     }
@@ -36,7 +36,7 @@ function divide(a, b) {
     const result = a / b;
     // Check if result has decimals and round to 5 places if necessary
     if (result % 1 !== 0) {
-        return result.toFixed(5); // Return with 5 decimal places
+        return Number(result.toFixed(5)); // Return with 5 decimal places
     } else {
         return result; // Return as an integer if no decimals
     }
@@ -139,9 +139,12 @@ document.querySelector(".clear").addEventListener("click", () => {
     operatorPressedLast = false; // Reset operator press flag
 });
 
-// Event listener for percent button
+// Event listener for decimal button
 document.querySelector(".decimal").addEventListener("click", () => {
-    alert("Functionality for this button does not exist yet.");
+    if (!currentValue.includes(".")) {
+        currentValue += "."; // Add decimal point to current value
+        updateDisplay(currentValue);
+    }
 });
 
 // Event listener for sign button
